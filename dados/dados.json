@@ -1,0 +1,664 @@
+{
+  "origem": "Grade e alunos ficticios; nao e a matriz oficial da PUCPR.",
+  "validacao": "Conferencia Python executada; SWI-Prolog nao executado neste ambiente.",
+  "disciplinas": {
+    "algoritmos1": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 1
+    },
+    "matematica_discreta": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 1
+    },
+    "introducao_computacao": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 1
+    },
+    "algoritmos2": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 2
+    },
+    "calculo1": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 2
+    },
+    "logica_computacao": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 2
+    },
+    "estrutura_dados": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 3
+    },
+    "algebra_linear": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 3
+    },
+    "arquitetura_computadores": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 3
+    },
+    "analise_algoritmos": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 4
+    },
+    "banco_dados1": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 4
+    },
+    "sistemas_operacionais": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 4
+    },
+    "compiladores": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 5
+    },
+    "banco_dados2": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 5
+    },
+    "redes_computadores": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 5
+    },
+    "inteligencia_artificial": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 6
+    },
+    "engenharia_software": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 6
+    },
+    "projeto_integrador": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 6
+    },
+    "seguranca_computacional": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 7
+    },
+    "sistemas_distribuidos": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 7
+    },
+    "tcc1": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 7
+    },
+    "etica_computacao": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 8
+    },
+    "gestao_projetos": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 8
+    },
+    "tcc2": {
+      "tipo": "obrigatoria",
+      "creditos": 4,
+      "semestre_sugerido": 8
+    },
+    "computacao_grafica": {
+      "tipo": "eletiva",
+      "creditos": 2,
+      "semestre_sugerido": 5
+    },
+    "robotica": {
+      "tipo": "eletiva",
+      "creditos": 2,
+      "semestre_sugerido": 6
+    },
+    "mineracao_dados": {
+      "tipo": "eletiva",
+      "creditos": 2,
+      "semestre_sugerido": 7
+    },
+    "processamento_imagens": {
+      "tipo": "eletiva",
+      "creditos": 2,
+      "semestre_sugerido": 8
+    }
+  },
+  "prerequisitos": {
+    "algoritmos1": [],
+    "matematica_discreta": [],
+    "introducao_computacao": [],
+    "algoritmos2": [
+      "algoritmos1"
+    ],
+    "calculo1": [
+      "matematica_discreta"
+    ],
+    "logica_computacao": [
+      "matematica_discreta"
+    ],
+    "estrutura_dados": [
+      "algoritmos2"
+    ],
+    "algebra_linear": [
+      "calculo1"
+    ],
+    "arquitetura_computadores": [
+      "algoritmos2",
+      "introducao_computacao"
+    ],
+    "analise_algoritmos": [
+      "estrutura_dados",
+      "matematica_discreta"
+    ],
+    "banco_dados1": [
+      "estrutura_dados"
+    ],
+    "sistemas_operacionais": [
+      "arquitetura_computadores",
+      "estrutura_dados"
+    ],
+    "compiladores": [
+      "analise_algoritmos",
+      "logica_computacao"
+    ],
+    "banco_dados2": [
+      "banco_dados1"
+    ],
+    "redes_computadores": [
+      "sistemas_operacionais"
+    ],
+    "inteligencia_artificial": [
+      "algebra_linear",
+      "analise_algoritmos"
+    ],
+    "engenharia_software": [
+      "banco_dados2"
+    ],
+    "projeto_integrador": [
+      "banco_dados2",
+      "compiladores"
+    ],
+    "seguranca_computacional": [
+      "redes_computadores"
+    ],
+    "sistemas_distribuidos": [
+      "banco_dados2",
+      "redes_computadores"
+    ],
+    "tcc1": [
+      "projeto_integrador"
+    ],
+    "etica_computacao": [
+      "introducao_computacao"
+    ],
+    "gestao_projetos": [
+      "engenharia_software"
+    ],
+    "tcc2": [
+      "tcc1"
+    ],
+    "computacao_grafica": [
+      "algebra_linear",
+      "estrutura_dados"
+    ],
+    "robotica": [
+      "algoritmos2",
+      "arquitetura_computadores"
+    ],
+    "mineracao_dados": [
+      "banco_dados2"
+    ],
+    "processamento_imagens": [
+      "algebra_linear"
+    ]
+  },
+  "alunos": {
+    "ana": {
+      "perfil": "adiantada",
+      "historico": [
+        "algebra_linear",
+        "algoritmos1",
+        "algoritmos2",
+        "analise_algoritmos",
+        "arquitetura_computadores",
+        "banco_dados1",
+        "banco_dados2",
+        "calculo1",
+        "compiladores",
+        "engenharia_software",
+        "estrutura_dados",
+        "inteligencia_artificial",
+        "introducao_computacao",
+        "logica_computacao",
+        "matematica_discreta",
+        "projeto_integrador",
+        "redes_computadores",
+        "sistemas_operacionais"
+      ],
+      "creditos_cursados": 72,
+      "liberadas": [
+        "computacao_grafica",
+        "etica_computacao",
+        "gestao_projetos",
+        "mineracao_dados",
+        "processamento_imagens",
+        "robotica",
+        "seguranca_computacional",
+        "sistemas_distribuidos",
+        "tcc1"
+      ],
+      "pendentes_obrigatorias": [
+        "etica_computacao",
+        "gestao_projetos",
+        "seguranca_computacional",
+        "sistemas_distribuidos",
+        "tcc1",
+        "tcc2"
+      ],
+      "uma_trilha_max_12": [
+        [
+          "etica_computacao",
+          "gestao_projetos",
+          "seguranca_computacional"
+        ],
+        [
+          "sistemas_distribuidos",
+          "tcc1"
+        ],
+        [
+          "tcc2"
+        ]
+      ]
+    },
+    "bruno": {
+      "perfil": "ritmo_normal",
+      "historico": [
+        "algebra_linear",
+        "algoritmos1",
+        "algoritmos2",
+        "arquitetura_computadores",
+        "calculo1",
+        "estrutura_dados",
+        "introducao_computacao",
+        "logica_computacao",
+        "matematica_discreta"
+      ],
+      "creditos_cursados": 36,
+      "liberadas": [
+        "analise_algoritmos",
+        "banco_dados1",
+        "computacao_grafica",
+        "etica_computacao",
+        "processamento_imagens",
+        "robotica",
+        "sistemas_operacionais"
+      ],
+      "pendentes_obrigatorias": [
+        "analise_algoritmos",
+        "banco_dados1",
+        "banco_dados2",
+        "compiladores",
+        "engenharia_software",
+        "etica_computacao",
+        "gestao_projetos",
+        "inteligencia_artificial",
+        "projeto_integrador",
+        "redes_computadores",
+        "seguranca_computacional",
+        "sistemas_distribuidos",
+        "sistemas_operacionais",
+        "tcc1",
+        "tcc2"
+      ],
+      "uma_trilha_max_12": [
+        [
+          "analise_algoritmos",
+          "banco_dados1",
+          "etica_computacao"
+        ],
+        [
+          "banco_dados2",
+          "compiladores",
+          "inteligencia_artificial"
+        ],
+        [
+          "engenharia_software",
+          "projeto_integrador",
+          "sistemas_operacionais"
+        ],
+        [
+          "gestao_projetos",
+          "redes_computadores",
+          "tcc1"
+        ],
+        [
+          "seguranca_computacional",
+          "sistemas_distribuidos",
+          "tcc2"
+        ]
+      ]
+    },
+    "carla": {
+      "perfil": "atrasada_apos_trancamento",
+      "historico": [
+        "algoritmos1",
+        "introducao_computacao"
+      ],
+      "creditos_cursados": 8,
+      "liberadas": [
+        "algoritmos2",
+        "etica_computacao",
+        "matematica_discreta"
+      ],
+      "pendentes_obrigatorias": [
+        "algebra_linear",
+        "algoritmos2",
+        "analise_algoritmos",
+        "arquitetura_computadores",
+        "banco_dados1",
+        "banco_dados2",
+        "calculo1",
+        "compiladores",
+        "engenharia_software",
+        "estrutura_dados",
+        "etica_computacao",
+        "gestao_projetos",
+        "inteligencia_artificial",
+        "logica_computacao",
+        "matematica_discreta",
+        "projeto_integrador",
+        "redes_computadores",
+        "seguranca_computacional",
+        "sistemas_distribuidos",
+        "sistemas_operacionais",
+        "tcc1",
+        "tcc2"
+      ],
+      "uma_trilha_max_12": [
+        [
+          "algoritmos2",
+          "etica_computacao",
+          "matematica_discreta"
+        ],
+        [
+          "arquitetura_computadores",
+          "calculo1",
+          "estrutura_dados"
+        ],
+        [
+          "algebra_linear",
+          "analise_algoritmos",
+          "banco_dados1"
+        ],
+        [
+          "banco_dados2",
+          "inteligencia_artificial",
+          "logica_computacao"
+        ],
+        [
+          "compiladores",
+          "engenharia_software",
+          "sistemas_operacionais"
+        ],
+        [
+          "gestao_projetos",
+          "projeto_integrador",
+          "redes_computadores"
+        ],
+        [
+          "seguranca_computacional",
+          "sistemas_distribuidos",
+          "tcc1"
+        ],
+        [
+          "tcc2"
+        ]
+      ]
+    },
+    "diego": {
+      "perfil": "ingressante_sem_historico",
+      "historico": [],
+      "creditos_cursados": 0,
+      "liberadas": [
+        "algoritmos1",
+        "introducao_computacao",
+        "matematica_discreta"
+      ],
+      "pendentes_obrigatorias": [
+        "algebra_linear",
+        "algoritmos1",
+        "algoritmos2",
+        "analise_algoritmos",
+        "arquitetura_computadores",
+        "banco_dados1",
+        "banco_dados2",
+        "calculo1",
+        "compiladores",
+        "engenharia_software",
+        "estrutura_dados",
+        "etica_computacao",
+        "gestao_projetos",
+        "inteligencia_artificial",
+        "introducao_computacao",
+        "logica_computacao",
+        "matematica_discreta",
+        "projeto_integrador",
+        "redes_computadores",
+        "seguranca_computacional",
+        "sistemas_distribuidos",
+        "sistemas_operacionais",
+        "tcc1",
+        "tcc2"
+      ],
+      "uma_trilha_max_12": [
+        [
+          "algoritmos1",
+          "introducao_computacao",
+          "matematica_discreta"
+        ],
+        [
+          "algoritmos2",
+          "calculo1",
+          "etica_computacao"
+        ],
+        [
+          "algebra_linear",
+          "arquitetura_computadores",
+          "estrutura_dados"
+        ],
+        [
+          "analise_algoritmos",
+          "banco_dados1",
+          "logica_computacao"
+        ],
+        [
+          "banco_dados2",
+          "compiladores",
+          "inteligencia_artificial"
+        ],
+        [
+          "engenharia_software",
+          "projeto_integrador",
+          "sistemas_operacionais"
+        ],
+        [
+          "gestao_projetos",
+          "redes_computadores",
+          "tcc1"
+        ],
+        [
+          "seguranca_computacional",
+          "sistemas_distribuidos",
+          "tcc2"
+        ]
+      ]
+    },
+    "elisa": {
+      "perfil": "concluinte_com_duas_pendencias",
+      "historico": [
+        "algebra_linear",
+        "algoritmos1",
+        "algoritmos2",
+        "analise_algoritmos",
+        "arquitetura_computadores",
+        "banco_dados1",
+        "banco_dados2",
+        "calculo1",
+        "compiladores",
+        "engenharia_software",
+        "estrutura_dados",
+        "etica_computacao",
+        "inteligencia_artificial",
+        "introducao_computacao",
+        "logica_computacao",
+        "matematica_discreta",
+        "projeto_integrador",
+        "redes_computadores",
+        "seguranca_computacional",
+        "sistemas_distribuidos",
+        "sistemas_operacionais",
+        "tcc1"
+      ],
+      "creditos_cursados": 88,
+      "liberadas": [
+        "computacao_grafica",
+        "gestao_projetos",
+        "mineracao_dados",
+        "processamento_imagens",
+        "robotica",
+        "tcc2"
+      ],
+      "pendentes_obrigatorias": [
+        "gestao_projetos",
+        "tcc2"
+      ],
+      "uma_trilha_max_12": [
+        [
+          "gestao_projetos",
+          "tcc2"
+        ]
+      ]
+    },
+    "fabio": {
+      "perfil": "formado",
+      "historico": [
+        "algebra_linear",
+        "algoritmos1",
+        "algoritmos2",
+        "analise_algoritmos",
+        "arquitetura_computadores",
+        "banco_dados1",
+        "banco_dados2",
+        "calculo1",
+        "compiladores",
+        "engenharia_software",
+        "estrutura_dados",
+        "etica_computacao",
+        "gestao_projetos",
+        "inteligencia_artificial",
+        "introducao_computacao",
+        "logica_computacao",
+        "matematica_discreta",
+        "projeto_integrador",
+        "redes_computadores",
+        "seguranca_computacional",
+        "sistemas_distribuidos",
+        "sistemas_operacionais",
+        "tcc1",
+        "tcc2"
+      ],
+      "creditos_cursados": 96,
+      "liberadas": [
+        "computacao_grafica",
+        "mineracao_dados",
+        "processamento_imagens",
+        "robotica"
+      ],
+      "pendentes_obrigatorias": [],
+      "uma_trilha_max_12": []
+    }
+  },
+  "trilhas_elisa_max_8": [
+    [
+      [
+        "gestao_projetos",
+        "tcc2"
+      ]
+    ],
+    [
+      [
+        "gestao_projetos"
+      ],
+      [
+        "tcc2"
+      ]
+    ],
+    [
+      [
+        "tcc2"
+      ],
+      [
+        "gestao_projetos"
+      ]
+    ]
+  ],
+  "checagens_independentes": [
+    "28 disciplinas unicas",
+    "24 obrigatorias",
+    "4 eletivas",
+    "8 semestres",
+    "6 alunos unicos",
+    "Creditos positivos",
+    "Fatos sem duplicatas",
+    "Semestres sugeridos respeitam arestas",
+    "Grade aciclica",
+    "Historicos completos quanto a pre-requisitos",
+    "Cadeia de 7 arestas",
+    "Trilhas de ana: 20 conferidas",
+    "Trilhas de bruno: 20 conferidas",
+    "Trilhas de carla: 20 conferidas",
+    "Trilhas de diego: 20 conferidas",
+    "Trilhas de elisa: 3 conferidas",
+    "Trilhas de fabio: 1 conferidas",
+    "Elisa: exatamente 3 trilhas com 8 creditos",
+    "Elisa: exatamente 2 trilhas com 4 creditos",
+    "Diego: 7 semestres insuficientes",
+    "Diego: 4 creditos por 12 semestres insuficientes",
+    "Fabio: somente trilha vazia",
+    "Creditos exatos",
+    "Fixture cria ciclo detectavel",
+    "Descendente nao vira membro do ciclo",
+    "Rejeita TCC1 e TCC2 simultaneos",
+    "Rejeita repeticao",
+    "Rejeita excesso de creditos",
+    "Rejeita semestre vazio",
+    "Rejeita trilha incompleta",
+    "Literal de teste liberadas(ana)",
+    "Literal de teste liberadas(bruno)",
+    "Literal de teste liberadas(carla)",
+    "Literal de teste liberadas(diego)",
+    "Literal de teste pendentes(ana)",
+    "Literal de teste pendentes(bruno)",
+    "Literal de teste pendentes(fabio)"
+  ]
+}
