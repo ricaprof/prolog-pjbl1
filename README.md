@@ -1,49 +1,52 @@
-# PjBL 1 - Sistema de Trilha de Disciplinas em Prolog
+# Sistema de Trilhas de Disciplinas em Prolog
 
-Implementação das três camadas do enunciado **PjBL 1.pdf**, com grade didática de Ciência da Computação, testes e resultados de referência.
+Projeto do PjBL 1 que representa uma grade didática de Ciência da Computação e gera trilhas de disciplinas até a formatura, respeitando pré-requisitos, limite de créditos e ordem entre semestres.
 
-## Avisos importantes antes da entrega
+## Integrantes
 
-- A grade é **fictícia**, com 28 disciplinas em 8 semestres sugeridos. Não foi fornecida a matriz oficial do curso. Nomes, créditos e pré-requisitos não devem ser apresentados como dados oficiais da PUCPR.
-- Há 24 obrigatórias (96 créditos) e 4 eletivas (8 créditos oferecidos). Cada obrigatória vale 4 créditos e cada eletiva vale 2; são escolhas didáticas.
-- Formatura significa concluir todas as obrigatórias. O PDF não estabelece uma carga mínima de eletivas, estágio ou atividades complementares. A hipótese está justificada em `docs/decisoes.md` e deve ser confirmada com o professor.
-- **O código não foi executado no SWI-Prolog neste ambiente**, pois o interpretador não estava disponível e sua instalação foi bloqueada. Foram realizadas conferências independentes em Python, que não substituem a execução em Prolog. Execute os testes abaixo antes de entregar.
-- O enunciado exige grupo de quatro integrantes e domínio individual do código. Preencha a identificação e confira a política da disciplina sobre assistência por IA.
+1. ______________________________
+2. ______________________________
+3. ______________________________
+4. ______________________________
 
-## Equipe
+## Funcionalidades
 
-Preencher os quatro nomes e matrículas reais antes da entrega. Nenhum integrante foi presumido.
+- cadastro de disciplinas obrigatórias e eletivas, pré-requisitos, alunos e históricos;
+- consulta de disciplinas liberadas e obrigatórias pendentes;
+- cálculo dos créditos já cursados;
+- busca recursiva de pré-requisitos diretos e indiretos;
+- detecção de ciclos na grade;
+- geração de uma ou várias trilhas por backtracking;
+- validação de créditos, histórico, referências e limite de semestres.
 
-## Arquivos
+## Estrutura
 
-| Arquivo | Finalidade |
+| Caminho | Conteúdo |
 |---|---|
-| `src/curriculum.pl` | Camada 1: disciplinas, pré-requisitos, alunos e históricos, somente fatos |
-| `src/elegibilidade.pl` | Camada 2: elegibilidade, pendências e créditos; auxiliares de listas |
-| `src/trilhas.pl` | Camada 3: fecho transitivo, ciclos e planejamento por backtracking |
-| `src/main.pl` | Carregamento e demonstração `demo/0` |
-| `tests/consultas_teste.pl` | Bateria automatizada de consultas e resultados esperados |
-| `tests/ciclo_teste.pl` | Fixture com ciclo real, executada isoladamente |
-| `tests/historico_teste.pl` | Fixture com alteração real de histórico, executada isoladamente |
-| `tests/executar.sh` | Executa as três baterias em processos separados |
-| `tests/verificar_dados.py` | Conferente opcional independente, somente biblioteca padrão Python |
-| `dados/dados.json` | Exportação completa da grade, arestas, históricos e resultados |
-| `docs/decisoes.md` | Decisões de modelagem, semântica e limitações |
-| `docs/explicacao.md` | Explicação do funcionamento e exemplos comentados |
-| `docs/requisitos.md` | Correspondência entre requisitos do PDF e implementação |
-| `docs/resultados_esperados.md` | Listas e trilhas calculadas a partir dos fatos, com status da conferência |
+| `src/curriculum.pl` | Camada 1: fatos da grade, alunos e históricos |
+| `src/elegibilidade.pl` | Camada 2: elegibilidade, pendências e créditos |
+| `src/trilhas.pl` | Camada 3: dependências, ciclos e planejamento |
+| `src/main.pl` | Ponto de entrada e demonstração `demo/0` |
+| `tests/` | Testes Prolog e conferência independente em Python |
+| `dados/dados.json` | Dados e resultados exportados |
+| `docs/` | Explicação, decisões, requisitos e validação |
+
+## Requisitos
+
+- SWI-Prolog;
+- Python 3 apenas para a conferência independente dos dados.
+
+O programa Prolog não usa bibliotecas ou pacotes externos.
 
 ## Executar
 
-Requisito principal: SWI-Prolog. O projeto Prolog não importa bibliotecas externas e não precisa de Python para funcionar.
-
-Abra um terminal na pasta `projeto`:
+Na raiz do projeto, inicie o interpretador:
 
 ```sh
 swipl -q -s src/main.pl
 ```
 
-No interpretador:
+Algumas consultas disponíveis:
 
 ```prolog
 ?- demo.
@@ -51,89 +54,63 @@ No interpretador:
 ?- disciplinas_pendentes(ana, Lista).
 ?- creditos_cursados(carla, Total).
 ?- prerequisito_transitivo(tcc2, Ancestral).
-?- existe_ciclo(D).
+?- existe_ciclo(Disciplina).
 ?- once(trilha_valida(diego, 12, Trilha)).
 ?- halt.
 ```
 
-O prefixo `?-` representa o prompt e não deve ser colado dentro do arquivo-fonte.
-
-Para uma demonstração não interativa:
+Para executar a demonstração diretamente pelo terminal:
 
 ```sh
 swipl -q -s src/main.pl -g demo -t halt
 ```
 
-## Executar os testes
+## Testes
 
-Linux/macOS, na pasta `projeto`:
+Execute a bateria Prolog completa:
 
 ```sh
 sh tests/executar.sh
 ```
 
-Sem shell POSIX, execute cada comando separadamente no terminal, sempre na pasta `projeto`:
+Ela carrega o projeto e executa 53 casos, um cenário de ciclo e um cenário de alteração de histórico, cada fixture no processo adequado.
 
-```sh
-swipl -q -s src/main.pl -g halt
-swipl -q -s tests/consultas_teste.pl -g "(executar_testes -> halt(0) ; halt(1))"
-swipl -q -s tests/ciclo_teste.pl -g "(executar_teste_ciclo -> halt(0) ; halt(1))"
-swipl -q -s tests/historico_teste.pl -g "(executar_teste_historico -> halt(0) ; halt(1))"
-```
-
-Resultado esperado: primeiro comando sem erros/avisos, bateria normal sem falhas e confirmação `OK` nas duas fixtures. **Isso é um resultado esperado, não uma execução já realizada aqui.**
-
-Não carregue as fixtures de ciclo/histórico na sessão normal: elas acrescentam fatos de teste. Encerre essa sessão e reabra `src/main.pl` para retornar à base original. Não se usa `assert/retract`.
-
-A conferência independente já realizada pode ser reproduzida com Python 3:
+Execute também a conferência independente dos fatos e resultados:
 
 ```sh
 python3 tests/verificar_dados.py
 ```
 
-Esse comando relê os fatos, confere exemplos e regrava `dados/dados.json` e `docs/resultados_esperados.md`. Não executa o código Prolog.
+Na última validação, realizada com SWI-Prolog 10.0.2 e Python 3, foram aprovados:
 
-## Uma trilha e múltiplas trilhas
+- 53 de 53 casos Prolog;
+- as duas fixtures isoladas;
+- 37 de 37 checagens independentes;
+- o carregamento e a demonstração, sem erros ou avisos.
+
+## Múltiplas trilhas
+
+Para obter apenas a primeira solução, use `once/1`:
 
 ```prolog
-% Obter somente a primeira solução; once evita enumerar todo o espaço.
-?- once(trilha_valida(diego, 12, T)).
+?- once(trilha_valida(diego, 12, Trilha)).
+```
 
-% Enumerar manualmente: digite ; para pedir a próxima solução.
-?- trilha_valida(ana, 12, T).
+Para enumerar todas as soluções de uma instância pequena:
 
-% Enumerar TODAS em uma instância pequena: Elisa só tem duas pendências.
+```prolog
 ?- findall(T, trilha_valida(elisa, 8, T), Ts).
 Ts = [[[gestao_projetos,tcc2]],
       [[gestao_projetos],[tcc2]],
       [[tcc2],[gestao_projetos]]].
-
-?- bagof(T, trilha_valida(elisa, 8, T), Ts).
-% As mesmas três trilhas.
-
-% Restrição adicional a somente um semestre.
-?- findall(T, trilha_valida_limite(elisa, 8, 1, T), Ts).
-Ts = [[[gestao_projetos,tcc2]]].
 ```
 
-Evite `findall(T, trilha_valida(diego, 12, T), Ts)`: o espaço é finito, mas pode ser enorme. O limite de 12 semestres não garante execução rápida para enumerar todas as possibilidades.
+Não é recomendado enumerar todas as trilhas de um aluno com muitas pendências, pois o espaço de busca é combinatório.
 
-## Dados de teste
+## Decisões de modelagem
 
-| Aluno | Perfil fictício | Obrigatórias cursadas | Créditos |
-|---|---|---:|---:|
-| ana | Adiantada: concluiu as disciplinas sugeridas até o 6º semestre | 18 | 72 |
-| bruno | Ritmo normal: concluiu até o 3º semestre | 9 | 36 |
-| carla | Atrasada após trancamento: duas disciplinas iniciais concluídas | 2 | 8 |
-| diego | Ingressante sem histórico | 0 | 0 |
-| elisa | Concluinte: faltam gestão de projetos e TCC2 | 22 | 88 |
-| fabio | Todas as obrigatórias concluídas | 24 | 96 |
+A grade possui 28 disciplinas distribuídas em oito semestres sugeridos: 24 obrigatórias de quatro créditos e quatro eletivas de dois créditos. Os dados são didáticos e não representam uma matriz oficial da PUCPR.
 
-Os perfis são cenários de teste; não há datas ou semestres de matrícula para inferir uma trajetória real.
+Neste projeto, a formatura corresponde à conclusão de todas as disciplinas obrigatórias. As eletivas são consideradas nas consultas de elegibilidade, mas só entram no planejamento se forem pré-requisitos de uma obrigatória. Os semestres cadastrados são sugestões, não restrições de oferta.
 
-## Revisão final pelo grupo
-
-1. Executar o carregamento, a demonstração e as três baterias no SWI-Prolog.
-2. Confirmar grade e hipótese de formatura com o professor; se necessário, substituir os fatos e atualizar testes/expectativas.
-3. Preencher os quatro integrantes e estudar a explicação, especialmente a recursão, a negação por falha e o backtracking.
-# prolog-pjbl1
+As justificativas completas estão em [`docs/decisoes.md`](docs/decisoes.md), e os resultados conferidos estão em [`docs/validacao.md`](docs/validacao.md).

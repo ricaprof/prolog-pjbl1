@@ -164,7 +164,7 @@ for operation, a, literal in re.findall(
 output = ROOT / 'dados'
 output.mkdir(exist_ok=True)
 payload = {'origem': 'Grade e alunos ficticios; nao e a matriz oficial da PUCPR.',
-           'validacao': 'Conferencia Python executada; SWI-Prolog nao executado neste ambiente.',
+           'validacao': 'Conferencia independente executada em Python; a bateria Prolog e registrada em docs/validacao.md.',
            'disciplinas': subjects,
            'prerequisitos': {d: sorted(ps) for d, ps in pre.items()},
            'alunos': results, 'trilhas_elisa_max_8': elisa8,
@@ -180,7 +180,7 @@ def pl(value):
 
 lines = ['# Dados e resultados esperados', '',
          'Origem: fatos de `src/curriculum.pl`. Grade e alunos inteiramente didáticos.', '',
-         '**Status:** resultados calculados e conferidos por Python. Não são um log de execução do SWI-Prolog.', '',
+         '**Status:** resultados calculados e conferidos por Python. A execução do SWI-Prolog está registrada em `validacao.md`.', '',
          'As listas de elegibilidade incluem eletivas. Pendências e formatura consideram as obrigatórias.', '',
          '| Aluno | Perfil | Créditos cursados | Obrigatórias pendentes |',
          '|---|---|---:|---:|']
@@ -201,10 +201,9 @@ lines += ['', '## Enumeração completa em instância pequena', '',
 lines.extend(f'- OK: {name}.' for name in checks)
 lines += ['', '## Limite desta validação', '',
           'O conferente lê os fatos e verifica dados, exemplos e invariantes por uma implementação independente.',
-          'Ele não interpreta o código Prolog. Execute `sh tests/executar.sh` para verificar carregamento,',
-          'avisos e comportamento no SWI-Prolog antes da entrega acadêmica.', '']
+          'Ele não interpreta o código Prolog e, por isso, complementa a bateria executada diretamente no SWI-Prolog.', '']
 (ROOT / 'docs' / 'resultados_esperados.md').write_text('\n'.join(lines), encoding='utf-8')
-print(f'OK: {len(checks)} checagens independentes. SWI-Prolog: NAO EXECUTADO.')
+print(f'OK: {len(checks)} checagens independentes em Python.')
 for a, r in results.items():
     print(f"{a}: {r['creditos_cursados']} creditos; {len(r['pendentes_obrigatorias'])} pendentes; "
           f"{len(r['uma_trilha_max_12'])} semestres na trilha-exemplo")

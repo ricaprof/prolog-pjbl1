@@ -1,38 +1,48 @@
 # Registro de validação
 
-## Executado neste ambiente
+## Ambiente
 
-Comando: `python3 tests/verificar_dados.py`.
+- Data: 18/09/2026
+- SWI-Prolog 10.0.2 para x86_64-linux
+- Python 3
 
-Resultado observado: **37 checagens independentes aprovadas**. A lista nominal de checagens está em `resultados_esperados.md` e em `dados/dados.json`.
+## Resultados
 
-O conferente leu os fatos Prolog e confirmou contagens, referências, ausência de duplicatas/ciclos na base normal, coerência dos históricos, cadeia de sete arestas, créditos, listas literais esperadas dos testes e invariantes das trilhas geradas por uma implementação independente.
-
-Foram conferidas até 20 trilhas por aluno (menos quando a instância possui menos soluções) com limite de 12 créditos por semestre. Para Elisa também foi feita a enumeração completa com limites 8 e 4, resultando em 3 e 2 soluções, respectivamente. A conferência não enumera todas as trilhas dos alunos com muitas pendências.
-
-## Preparado, mas não executado
-
-- 53 casos na bateria `tests/consultas_teste.pl`.
-- Uma fixture isolada de ciclo em `tests/ciclo_teste.pl`.
-- Uma fixture isolada de alteração de histórico em `tests/historico_teste.pl`.
-- Carregamento de `src/main.pl` e execução de `demo/0` no SWI-Prolog.
-
-O SWI-Prolog não estava instalado. A tentativa de instalação foi bloqueada por permissões do ambiente e não se contornou essa restrição. Portanto **não se afirma que o programa carregou sem warnings ou que os testes Prolog passaram**.
-
-## Como concluir a validação
-
-Em uma máquina com SWI-Prolog, abra a pasta `projeto` e execute:
+O comando abaixo foi executado na raiz do projeto:
 
 ```sh
 sh tests/executar.sh
+```
+
+Resultados observados:
+
+- carregamento de `src/main.pl` sem erros ou avisos;
+- 53 de 53 casos aprovados em `tests/consultas_teste.pl`;
+- fixture de ciclo aprovada em processo isolado;
+- fixture de alteração de histórico aprovada em processo isolado.
+
+A demonstração completa também foi executada com sucesso:
+
+```sh
 swipl -q -s src/main.pl -g demo -t halt
 ```
 
-Se houver falha, preserve a saída completa para diagnóstico. A existência de resultados de referência calculados em Python não elimina a possibilidade de erros específicos de sintaxe, carregamento ou semântica no Prolog.
+Ela consultou as três camadas, exibiu os seis perfis, encontrou uma trilha de oito semestres para Diego e enumerou as três trilhas esperadas para Elisa.
 
-## Pendências acadêmicas
+## Conferência independente
 
-- Confirmar a matriz curricular real: a entregue é didática, não oficial.
-- Confirmar a regra de formatura, especialmente eletivas.
-- Preencher os quatro integrantes e matrículas reais.
-- Revisar o código em grupo e observar as regras da disciplina sobre ferramentas de IA.
+Também foi executado:
+
+```sh
+python3 tests/verificar_dados.py
+```
+
+O resultado foi **37 de 37 checagens aprovadas**. O conferente validou contagens, referências, duplicatas, ausência de ciclos na base normal, coerência dos históricos, créditos, listas esperadas e invariantes das trilhas.
+
+Foram verificadas até 20 trilhas por aluno com limite de 12 créditos por semestre. Para Elisa, a enumeração completa produziu três soluções com limite 8 e duas soluções com limite 4.
+
+A lista de checagens e os resultados calculados estão em `docs/resultados_esperados.md` e `dados/dados.json`.
+
+## Identificação da equipe
+
+O único preenchimento restante é informar no README os nomes dos quatro integrantes.

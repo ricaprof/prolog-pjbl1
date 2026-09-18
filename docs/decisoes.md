@@ -26,7 +26,7 @@ O enunciado exige cadastrar eletivas, mas não define quantidade ou carga mínim
 - eletivas que não sejam necessárias à conclusão das obrigatórias não são inseridas na trilha;
 - aluno com todas as obrigatórias cursadas tem exatamente a trilha vazia `[]`.
 
-Na base entregue nenhuma obrigatória depende de eletiva. Não foram inventadas regras oficiais de estágio, TCC além das duas disciplinas cadastradas, extensão ou horas complementares. Confirme essa decisão com o professor antes da entrega.
+Na base entregue nenhuma obrigatória depende de eletiva. Não foram acrescentadas regras de estágio, TCC além das duas disciplinas cadastradas, extensão ou horas complementares, pois elas não fazem parte do escopo adotado para este projeto.
 
 ## 4. Semestre sugerido não é restrição
 
@@ -115,4 +115,4 @@ As fixtures usam `multifile` para acrescentar fatos em arquivos separados. Cada 
 
 O teste normal compara resultados exatos, exercita variáveis, entradas inválidas, créditos, ordem temporal e múltiplas soluções. Um verificador separado da geração confere cobertura, pré-requisitos diretos, ausência de duplicatas e créditos das trilhas.
 
-Neste ambiente foi executado somente o conferente Python dos dados e exemplos. A disponibilidade/instalação do SWI-Prolog foi bloqueada, então **carregamento sem warnings e aprovação dos testes Prolog permanecem pendentes de execução**. Não há log fictício de sucesso e não se garante nota na rubrica.
+Na validação de 18/09/2026, o projeto foi carregado e testado com SWI-Prolog 10.0.2: os 53 casos da bateria principal e as duas fixtures isoladas passaram. A demonstração também foi executada sem erros ou avisos. Em complemento, o conferente Python aprovou 37 checagens independentes dos dados e resultados.

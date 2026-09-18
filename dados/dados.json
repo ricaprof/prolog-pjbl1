@@ -1,6 +1,6 @@
 {
   "origem": "Grade e alunos ficticios; nao e a matriz oficial da PUCPR.",
-  "validacao": "Conferencia Python executada; SWI-Prolog nao executado neste ambiente.",
+  "validacao": "Conferencia independente executada em Python; a bateria Prolog e registrada em docs/validacao.md.",
   "disciplinas": {
     "algoritmos1": {
       "tipo": "obrigatoria",

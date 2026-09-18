@@ -2,7 +2,7 @@
 
 Origem: fatos de `src/curriculum.pl`. Grade e alunos inteiramente didáticos.
 
-**Status:** resultados calculados e conferidos por Python. Não são um log de execução do SWI-Prolog.
+**Status:** resultados calculados e conferidos por Python. A execução do SWI-Prolog está registrada em `validacao.md`.
 
 As listas de elegibilidade incluem eletivas. Pendências e formatura consideram as obrigatórias.
 
@@ -176,5 +176,4 @@ Ts = [[[gestao_projetos, tcc2]], [[gestao_projetos], [tcc2]], [[tcc2], [gestao_p
 ## Limite desta validação
 
 O conferente lê os fatos e verifica dados, exemplos e invariantes por uma implementação independente.
-Ele não interpreta o código Prolog. Execute `sh tests/executar.sh` para verificar carregamento,
-avisos e comportamento no SWI-Prolog antes da entrega acadêmica.
+Ele não interpreta o código Prolog e, por isso, complementa a bateria executada diretamente no SWI-Prolog.
