@@ -4,10 +4,10 @@ Projeto do PjBL 1 que representa uma grade didática de Ciência da Computação
 
 ## Integrantes
 
-1. ______________________________
-2. ______________________________
-3. ______________________________
-4. ______________________________
+1. Ricardo Vinicius Moreira Vianna
+2. Isabelle Duarte Santos
+3. Daniel Langner Jager
+4. Vitor Luis da Silva Ferreira
 
 ## Funcionalidades
 
